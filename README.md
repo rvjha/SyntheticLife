@@ -1,7 +1,7 @@
 # SyntheticLife
 A Reinforcement Learning Toolkit for the Multiverse: Experiments with Synthetic Actors and Virtual Worlds.
 
-## [April 9, 2023]
+## Introduction
 Initially, I am going to talk about Reinforcement Learning as it pertains to some Bots in SL (yes, pun intended).
 
 Issues:
@@ -14,3 +14,6 @@ Topics:
 * Checkers, can we teach a bot to play checkers by playing with another bot.
 * Sitcom,  Can we create a Situational Comedy between bots and human players that learns.
 * Story Arcs, Can we develop short interactive stories with scenes, themes, a climax (or two) and endings.
+
+# [See the Wiki](https://github.com/technorabbit-resident/SyntheticLife/wiki)
+
