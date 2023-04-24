@@ -9,7 +9,7 @@
 // reinforcement learning algorithm:
 
 
-
+list   qValues;
 // List of tasks and initial probabilities
 list tasks = [
     "Greet guests",
@@ -50,7 +50,8 @@ integer selectTask(float epsilon)
     {
         // Select the task with highest Q-value with probability 1-epsilon
         float maxQ = -99999.9;
-        for (integer i = 0; i < llGetListLength(tasks); i++)
+        integer i;
+        for (i = 0; i < llGetListLength(tasks); i++)
         {
             float q = llList2Float(qValues, i);
             if (q > maxQ)
@@ -64,13 +65,14 @@ integer selectTask(float epsilon)
 }
 
 // Function to update the Q-value for the previous state-action pair
-void updateQValue()
+updateQValue()
 {
     if (prevState >= 0 && prevAction >= 0)
     {
         float q = llList2Float(qValues, prevState * llGetListLength(tasks) + prevAction);
         float maxQ = -99999.9;
-        for (integer i = 0; i < llGetListLength(tasks); i++)
+        integer i;
+        for (i = 0 ; i < llGetListLength(tasks); i++)
         {
             float q_i = llList2Float(qValues, prevState * llGetListLength(tasks) + i);
             if (q_i > maxQ)
@@ -89,7 +91,7 @@ default
     state_entry()
     {
         // Initialize Q-values to 0
-        qValues = llListRepeat([0.0], llGetListLength(tasks) * llGetListLength(tasks));
+        qValues = llListRandomize(tasks,  llGetListLength(tasks));
     }
 
     touch_start(integer total_number)
